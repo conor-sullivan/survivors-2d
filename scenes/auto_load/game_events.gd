@@ -3,6 +3,7 @@ extends Node
 signal experiance_vial_collected(number: float)
 signal ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary)
 
+
 func emit_experiance_vial_collected(number: float):
 	experiance_vial_collected.emit(number)
 
