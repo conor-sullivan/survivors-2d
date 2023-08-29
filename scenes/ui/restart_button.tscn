@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dwkpw2nuuoj7r"]
+
+[node name="RestartButton" type="Button"]
+text = "Restart
+"

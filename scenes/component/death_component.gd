@@ -3,6 +3,7 @@ extends Node2D
 @export var health_component: HealthComponent
 @export var sprite: Sprite2D
 
+
 func _ready():
 	$GPUParticles2D.texture = sprite.texture
 	health_component.died.connect(on_died)
@@ -21,3 +22,4 @@ func on_died():
 	global_position = spawn_position
 
 	$AnimationPlayer.play("default")
+	$HitRandomAudioPlayerComponent.play_random()
