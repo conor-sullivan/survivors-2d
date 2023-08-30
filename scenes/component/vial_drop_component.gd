@@ -8,9 +8,13 @@ class_name VialDropComponent
 
 func _ready():
 	HealthComponent.died.connect(on_died)
-	
-	
+
+
 func on_died():
+	var adjusted_drop_percent = drop_percent
+	var experiance_gain_upgrade_count = MetaProgression.get_upgrade_count("experiance_gain")
+	if experiance_gain_upgrade_count > 0:
+		adjusted_drop_percent += 0.1
 	if randf() > drop_percent: return
 	
 	if not vial_scene: return

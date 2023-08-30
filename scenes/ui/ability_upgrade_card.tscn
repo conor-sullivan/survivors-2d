@@ -60,7 +60,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
@@ -118,7 +118,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.2, 0.4),
@@ -223,6 +223,7 @@ volume_db = -8.0
 streams = Array[AudioStream]([ExtResource("3_t72pk"), ExtResource("4_0h0ew"), ExtResource("5_t6y3d"), ExtResource("6_lhhx7"), ExtResource("7_18y4r"), ExtResource("8_p887n"), ExtResource("9_wiyi6"), ExtResource("10_kjspo"), ExtResource("11_bcxty"), ExtResource("12_7a5ah")])
 
 [node name="ClickSoundPlayerComponent" parent="." instance=ExtResource("2_4aujm")]
+volume_db = -3.0
 streams = Array[AudioStream]([ExtResource("3_t72pk"), ExtResource("4_0h0ew"), ExtResource("5_t6y3d"), ExtResource("6_lhhx7"), ExtResource("7_18y4r"), ExtResource("8_p887n"), ExtResource("9_wiyi6"), ExtResource("10_kjspo"), ExtResource("11_bcxty"), ExtResource("12_7a5ah")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
