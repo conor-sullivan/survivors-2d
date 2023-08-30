@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0o06xcksuuhe"]
+
+[ext_resource type="Shader" path="res://scenes/auto_load/screen_transition.gdshader" id="1_a42ci"]
+[ext_resource type="Script" path="res://scenes/auto_load/screen_transition.gd" id="1_l2htx"]
+[ext_resource type="Texture2D" uid="uid://bnca7apg21jl4" path="res://assets/ui/screen_transition.png" id="2_sdik7"]
+
+[sub_resource type="Animation" id="Animation_vklga"]
+resource_name = "default"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1.93187, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5duxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5i3m8"]
+_data = {
+"RESET": SubResource("Animation_5duxg"),
+"default": SubResource("Animation_vklga")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a67c"]
+shader = ExtResource("1_a42ci")
+shader_parameter/transition_color = Color(0.247059, 0.14902, 0.192157, 1)
+shader_parameter/percent = 0.0
+shader_parameter/transition_texture = ExtResource("2_sdik7")
+
+[node name="ScreenTransition" type="CanvasLayer"]
+process_mode = 3
+layer = 5
+script = ExtResource("1_l2htx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5i3m8")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1a67c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
