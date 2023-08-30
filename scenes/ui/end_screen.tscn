@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2w7ethqb7xcr"]
+[gd_scene load_steps=9 format=3 uid="uid://d2w7ethqb7xcr"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_s7i4u"]
 [ext_resource type="PackedScene" uid="uid://dy8f6jp6k224o" path="res://scenes/ui/sound_button.tscn" id="2_aqhfk"]
+[ext_resource type="AudioStream" uid="uid://cyoh1x58tl27l" path="res://assets/audio/jingles_victory.ogg" id="3_v7x7p"]
+[ext_resource type="AudioStream" uid="uid://q5nauwlmlrfg" path="res://assets/audio/jingles_defeat.ogg" id="4_pb70q"]
 
 [sub_resource type="Animation" id="Animation_yhp8h"]
 length = 0.001
@@ -105,11 +107,8 @@ theme_override_constants/separation = 16
 [node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/shadow_offset_x = 0
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "Victory"
 horizontal_alignment = 1
@@ -118,10 +117,7 @@ vertical_alignment = 1
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/outline_size = 8
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 0
 text = "You Won!"
 
@@ -139,3 +135,13 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Quit
 "
+
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v7x7p")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pb70q")
+volume_db = -5.0
+bus = &"sfx"

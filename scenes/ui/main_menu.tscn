@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://daw16b4b7fm5p"]
+[gd_scene load_steps=5 format=3 uid="uid://daw16b4b7fm5p"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_2xjna"]
 [ext_resource type="TileSet" uid="uid://b2j8ck0ddpou2" path="res://resources/tileset.tres" id="1_c2np8"]
-[ext_resource type="PackedScene" uid="uid://dwkpw2nuuoj7r" path="res://scenes/ui/restart_button.tscn" id="2_3w8mx"]
+[ext_resource type="PackedScene" uid="uid://26gqkoq1sl2v" path="res://scenes/ui/vingette.tscn" id="2_srmac"]
+[ext_resource type="PackedScene" uid="uid://dy8f6jp6k224o" path="res://scenes/ui/sound_button.tscn" id="3_wt3eq"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_2xjna")
@@ -37,22 +38,24 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "The Arena"
 
-[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_3w8mx")]
+[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_wt3eq")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play
 "
 
-[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_3w8mx")]
+[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_wt3eq")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_3w8mx")]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_wt3eq")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit
-"
+text = "Quit"
+
+[node name="Vingette" parent="." instance=ExtResource("2_srmac")]
