@@ -11,10 +11,13 @@ var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
+var upgrade_anvil_count = preload("res://resources/upgrades/anvil_count.tres")
 
 
 func _ready():
 	upgrade_pool.add_item(upgrade_axe, 10)
+	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
 	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
@@ -44,6 +47,8 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	if chosen_upgrade.id == upgrade_axe.id:
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
+	elif chosen_upgrade.id == upgrade_anvil.id:
+		upgrade_pool.add_item(upgrade_anvil_count, 5)
 
 
 func pick_upgrades():
@@ -62,7 +67,7 @@ func on_upgrade_selected(upgrade: AbilityUpgrade):
 	apply_upgrade(upgrade) 
 
 
-func on_level_up(current_level: int):	
+func on_level_up(current_level: int):
 	var upgrade_scene_instance = upgrade_screen_scene.instantiate() as UpgradeScene
 	add_child(upgrade_scene_instance)
 	var chosen_upgrades = pick_upgrades()

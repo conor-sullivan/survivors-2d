@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jpxkprfcvqki"]
+[gd_scene load_steps=16 format=3 uid="uid://jpxkprfcvqki"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_7d563"]
 [ext_resource type="PackedScene" uid="uid://drd2pe6b6rm3w" path="res://scenes/manager/enemy_manager.tscn" id="1_kka3f"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cbjxvepk6avxi" path="res://scenes/manager/upgrade_manager.tscn" id="6_uqmko"]
 [ext_resource type="PackedScene" uid="uid://3c2iixmqeom6" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="7_e2ej8"]
 [ext_resource type="PackedScene" uid="uid://bk1c5sy05ojxl" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="8_hteqy"]
+[ext_resource type="PackedScene" uid="uid://fg5m4r2fgy2t" path="res://scenes/game_object/bat_enemy/bat_enemy.tscn" id="10_45uuy"]
 [ext_resource type="PackedScene" uid="uid://26gqkoq1sl2v" path="res://scenes/ui/vingette.tscn" id="14_tsp08"]
 
 [node name="Main" type="Node"]
@@ -32,6 +33,7 @@ experiance_manager = NodePath("../ExperianceManager")
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_kka3f")]
 basic_enemy_scene = ExtResource("7_e2ej8")
 wizard_enemy_scene = ExtResource("8_hteqy")
+bat_enemy_scene = ExtResource("10_45uuy")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperianceManager" parent="." instance=ExtResource("4_g7ia8")]
@@ -49,8 +51,9 @@ layer_0/tile_data = PackedInt32Array(458761, 0, 4, 524297, 65536, 4, 589833, 655
 [node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Entities" instance=ExtResource("1_q7ye1")]
+[node name="Player" parent="Entities" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_q7ye1")]
 unique_name_in_owner = true
 position = Vector2(528, 365)
+arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]

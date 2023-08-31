@@ -1,4 +1,5 @@
 extends Node
+class_name Main
 
 @export var end_screen_scene: PackedScene
 

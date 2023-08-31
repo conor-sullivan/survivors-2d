@@ -15,7 +15,7 @@ func on_died():
 	var experiance_gain_upgrade_count = MetaProgression.get_upgrade_count("experiance_gain")
 	if experiance_gain_upgrade_count > 0:
 		adjusted_drop_percent += 0.1
-	if randf() > drop_percent: return
+	if randf() > adjusted_drop_percent: return
 	
 	if not vial_scene: return
 	if not owner is Node2D: return
